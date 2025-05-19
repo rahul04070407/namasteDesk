@@ -253,6 +253,43 @@ body {
             font-size: 1rem;
         }
     }
+
+    .hero1 {
+        padding: 2rem 1rem;
+
+        .content {
+            h1 {
+                font-size: 1.1rem;
+            }
+
+            p {
+                font-size: 0.85rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+
+                .btn {
+                    width: 100%;
+                    margin: 7px 0.4rem !important;
+                }
+            }
+        }
+
+        .devices {
+            // margin-top: 1.5rem;
+
+            .device {
+                max-height: 200px !important;
+            }
+
+            .tablet {
+                top: 65px !important;
+            }
+        }
+    }
+
 }
 
 @media (max-width: 576px) {
@@ -767,78 +804,166 @@ body {
 }
 
 .hero1 {
-  text-align: center;
-  padding: 2.5rem 1.5rem; // reduced vertical padding
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #f0f0f0, #e6e6e6);
+    text-align: center;
+    padding: 2.5rem 1.5rem; // reduced vertical padding
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #f0f0f0, #e6e6e6);
 
-  .content {
-    // margin-bottom: 1.5rem;
+    .content {
+        // margin-bottom: 1.5rem;
 
-    h1 {
-      font-size: 1.4rem; // reduced font size
-      font-weight: 700;
-      color: #222;
-    }
-
-    p {
-      font-size: 0.95rem; // slightly smaller
-      margin-top: 0.4rem;
-      color: #444;
-    }
-
-    .buttons {
-      margin-top: 1rem;
-
-      .btn {
-        padding: 0.6rem 1.2rem; // slightly smaller buttons
-        margin: 0 0.4rem;
-        border: none;
-        border-radius: 4px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.3s ease;
-
-        &.demo {
-          background-color: #ffd700;
-          color: #000;
-
-          &:hover {
-            background-color: #ffcc00;
-          }
+        h1 {
+            font-size: 1.4rem; // reduced font size
+            font-weight: 700;
+            color: #222;
         }
 
-        &.trial {
-          background-color: #000;
-          color: #fff;
-
-          &:hover {
-            background-color: #222;
-          }
+        p {
+            font-size: 0.95rem; // slightly smaller
+            margin-top: 0.4rem;
+            color: #444;
         }
-      }
-    }
-  }
 
-  .devices {
-    // margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+        .buttons {
+            margin-top: 1rem;
 
-    .device {
-      max-height: 300px; // smaller image
-      width: auto;
+            .btn {
+                padding: 0.6rem 1.2rem; // slightly smaller buttons
+                margin: 0 0.4rem;
+                border: none;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background 0.3s ease;
+
+                &.demo {
+                    background-color: #ffd700;
+                    color: #000;
+
+                    &:hover {
+                        background-color: #ffcc00;
+                    }
+                }
+
+                &.trial {
+                    background-color: #000;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: #222;
+                    }
+                }
+            }
+        }
     }
 
-    .tablet {
-      position: relative;
-      top: 80px; // moves the image upward
+    .devices {
+        // margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .device {
+            max-height: 300px; // smaller image
+            width: auto;
+        }
+
+        .tablet {
+            position: relative;
+            top: 80px; // moves the image upward
+        }
     }
-  }
 }
 
+.faq-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    max-width: 900px;
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 0.6rem;
+    }
+
+    .accordion {
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid #000;
+
+
+            .accordion-button {
+                background-color: transparent;
+                box-shadow: none;
+                padding-right: 2.5rem;
+                position: relative;
+                font-weight: 600;
+
+                &::after {
+                    background-color: #000;
+                    color: #fff;
+                    background-image: none !important;
+                    font-family: "bootstrap-icons" !important;
+                    content: "\f282";
+                    font-style: normal;
+                    font-weight: normal;
+                    margin-left: auto;
+                    transition: transform 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    width: 28px;
+                    height: 28px;
+                    font-size: 14px;
+                }
+
+                &.collapsed::after {
+                    content: "\f285";
+                }
+
+                &:not(.collapsed) {
+                    color: #ffbc16;
+                }
+            }
+
+            .accordion-body {
+                padding-left: 1.5rem;
+                font-size: 0.875rem;
+                color: #6c757d;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .faq-section {
+            padding: 2rem 1rem;
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .accordion-button {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+
+                &::after {
+                    width: 24px;
+                    height: 24px;
+                    font-size: 12px;
+                }
+            }
+
+            .accordion-body {
+                padding-left: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+}
 
 .footer {
     background-color: #000;
