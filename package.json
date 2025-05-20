@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --base-href /namasteDesk/ --output-path=dist/namasteDesk && npx angular-cli-ghpages --dir=dist/namasteDesk/browser"
   },
   "private": true,
   "dependencies": {
