@@ -173,12 +173,14 @@ body {
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
+        z-index: 1;
 
         .banner-mockup {
-            max-width: 850px;
+            max-width: 1000px;
             width: 100%;
             height: auto;
-            margin: 0 auto 0px auto;
+            // margin: 0 auto 0px auto;
+            margin: -90px auto 0px 200px;
             display: block;
         }
 
@@ -207,8 +209,8 @@ body {
                 position: absolute;
                 background-color: black;
                 color: white;
-                top: 363px;
-                right: 371px;
+                top: 430px;
+                right: 291px;
                 border: none;
                 border-radius: 11px;
                 width: 208px;
@@ -414,7 +416,7 @@ body {
 
                 .subheading {
                     font-size: 0.70rem;
-                    padding-top: 7px;
+                    padding-top: 3px;
                 }
 
                 .bell-button {
