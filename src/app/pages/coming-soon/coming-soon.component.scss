@@ -1,40 +1,7 @@
-/* Make sure html, body take full height */
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* Flex container to stack header, main, footer */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Fixed height header and footer */
-.site-header,
-.site-footer {
-    background-color: #ffda2a;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* Give header and footer fixed height */
-.site-header {
-    height: 80px;
-    flex-shrink: 0;
-}
-
-.site-footer {
-    height: 60px;
-    flex-shrink: 0;
-}
 
 /* Main fills the rest */
 .coming-soon-container {
+        min-height: 85vh;
     flex-grow: 1;
     /* fill remaining vertical space */
     display: flex;
