@@ -204,6 +204,31 @@ body {
                 display: inline-block;
             }
 
+            // .bell-button {
+            //     display: block;
+            //     position: absolute;
+            //     background-color: black;
+            //     color: white;
+            //     top: 430px;
+            //     right: 291px;
+            //     border: none;
+            //     border-radius: 11px;
+            //     width: 208px;
+            //     height: 37px;
+            //     font-size: 16px;
+            //     cursor: pointer;
+            //     z-index: 1000;
+            //     transition: background-color 0.3s ease, transform 0.3s ease;
+            //     box-shadow: 0 0 10px rgba(94, 95, 94, 0.6);
+            //     animation: pulse-glow 4s infinite; // <== SLOWER (was 2s)
+
+            //     &:hover {
+            //         background-color: #2f7033;
+            //         transform: scale(1.05);
+            //         // box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+            //     }
+            // }
+
             .bell-button {
                 display: block;
                 position: absolute;
@@ -211,23 +236,44 @@ body {
                 color: white;
                 top: 430px;
                 right: 291px;
-                border: none;
+                border: 2px solid black;
                 border-radius: 11px;
                 width: 208px;
                 height: 37px;
                 font-size: 16px;
                 cursor: pointer;
                 z-index: 1000;
-                transition: background-color 0.3s ease, transform 0.3s ease;
                 box-shadow: 0 0 10px rgba(94, 95, 94, 0.6);
-                animation: pulse-glow 4s infinite; // <== SLOWER (was 2s)
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                animation: border-pulse 2s ease-in-out infinite;
+            }
 
-                &:hover {
-                    background-color: #2f7033;
+            @keyframes border-pulse {
+                0% {
+                    transform: scale(1);
+                    border-color: black;
+
+                }
+
+                50% {
                     transform: scale(1.05);
-                    // box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+                    border-color: black;
+
+                }
+
+                100% {
+                    transform: scale(1);
+                    border-color: black;
+
                 }
             }
+
+            .bell-button:hover {
+                background-color: #2f7033;
+            }
+
+
+
         }
 
 
@@ -264,6 +310,11 @@ body {
             }
         }
     }
+
+    .about-section .about-image .image-circle {
+        margin: -148px auto -60px 98px !important;
+    }
+
 }
 
 @media (max-width: 992px) {
@@ -271,7 +322,7 @@ body {
         .banner-wrapper {
             .banner-mockup {
                 max-width: 90%;
-                margin: 0 auto 20px 88px;
+                margin: 0 auto 20px 88px !important;
             }
 
             .banner-content {
@@ -295,10 +346,12 @@ body {
                     height: 36px;
                     font-size: 15px;
                     display: block;
+                    margin-bottom: 10px;
                 }
             }
         }
     }
+
 
 }
 
@@ -307,7 +360,7 @@ body {
         .banner-wrapper {
             .banner-mockup {
                 max-width: 100%;
-                margin: 0 auto 0px 16px;
+                margin: 0 auto 0px 16px !important;
             }
 
             .banner-content {
@@ -323,6 +376,7 @@ body {
                     width: 139px;
                     height: 30px;
                     font-size: 12px;
+                    margin-bottom: 10px;
                 }
             }
         }
@@ -391,13 +445,14 @@ body {
                     width: 140px;
                     height: 24px;
                     font-size: 10px;
+                    margin-bottom: 5px;
                 }
             }
         }
     }
 
     .about-section .about-image .image-circle {
-        margin: -132px auto 0 !important;
+   margin: -114px auto 0 !important;
 
     }
 }
