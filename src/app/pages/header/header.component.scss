@@ -18,7 +18,7 @@
         align-items: center;
         justify-content: flex-start;
         flex: 1;
-        max-width: 250px; // Keep logo slightly left
+        max-width: 400px; // Keep logo slightly left
     }
 
     .logo {
@@ -155,24 +155,29 @@
         }
     }
 
-  
+
 
 
 }
 
-  @media (min-width: 1500px) {
-        .custom-header {
-            .logo {
-                max-height: 120px !important; // increase logo size, !important to override if needed
-            }
+@media (min-width: 1500px) {
+    .custom-header {
+        .logo {
+            max-height: 120px !important; // increase logo size, !important to override if needed
+        }
 
-            .nav-link {
-                font-size: 20px !important; // increase nav link font size
-                padding-bottom: 8px !important;
-            }
+        .logo-container {
 
-            .menu-toggle {
-                font-size: 32px !important; // bigger hamburger icon
-            }
+            max-width: 600px !important;
+        }
+
+        .nav-link {
+            font-size: 20px !important; // increase nav link font size
+            padding-bottom: 8px !important;
+        }
+
+        .menu-toggle {
+            font-size: 32px !important; // bigger hamburger icon
         }
     }
+}

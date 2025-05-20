@@ -238,48 +238,6 @@ body {
     color: #ffd439;
 }
 
-// .hero-banner {
-//     background-color: #ffda2a;
-//     position: relative;
-//     text-align: center;
-//     margin-top: 0;
-
-// }
-
-// .banner-wrapper {
-//     max-width: 1200px;
-//     margin: 0 auto;
-//     position: relative;
-// }
-
-// .banner-mockup {
-//     max-width: 850px;
-//     width: 100%;
-//     height: auto;
-//     margin: 0 auto 0px auto;
-//     display: block;
-// }
-
-// .banner-content {
-//     max-width: 700px;
-//     margin: -35px auto;
-//     padding-bottom: 30px;
-
-//     .heading {
-//         font-size: 1.2rem;
-//         margin-bottom: 0.5rem;
-//         font-weight: 700;
-//     }
-
-//     .subheading {
-//         font-size: 1rem;
-//         color: yellow;
-//         background-color: black;
-//         padding: 2px 8px;
-//         border-radius: 10px;
-//         display: inline-block;
-//     }
-// }
 
 @media (max-width: 1040px) {
     .side-demo-button {
@@ -470,11 +428,17 @@ body {
     .about-wrapper {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
         max-width: 1200px;
         margin: 0 auto;
 
+
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 1;
 
         @media (max-width: 768px) {
             flex-direction: column;
@@ -495,6 +459,7 @@ body {
 
     .about-text {
         flex: 1;
+        align-items: center;
 
         .about-title {
             .title-line {
@@ -549,7 +514,10 @@ body {
         .image-circle {
             width: 100%;
             max-width: 500px;
-            margin: -148px auto 0;
+            // margin: -148px auto 0;
+            // margin: -148px auto -60px 107px;
+            margin: -148px auto -60px 179px;
+            ;
             background: transparent;
             border: none;
 
