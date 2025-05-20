@@ -294,7 +294,17 @@ body {
     }
 
     .hero-banner .banner-wrapper .banner-content .bell-button {
-        right: 312px !important;
+        right: 279px !important;
+        top: 404px !important;
+    }
+
+    .hero-banner {
+        .banner-wrapper {
+            .banner-mockup {
+                max-width: 90%;
+                margin: -83px auto 0px 75px !important;
+            }
+        }
     }
 }
 
