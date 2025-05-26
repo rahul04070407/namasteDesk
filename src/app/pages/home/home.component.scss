@@ -1143,9 +1143,12 @@ body {
     max-width: 900px;
 
     h2 {
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 0.6rem;
+      text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 40px;
+    font-family: "Oswald", sans-serif;
     }
 
     .accordion {
@@ -1159,7 +1162,7 @@ body {
                 box-shadow: none;
                 padding-right: 2.5rem;
                 position: relative;
-                font-weight: 600;
+                font-weight: 500 !important;
 
                 &::after {
                     background-color: #000;
@@ -1391,9 +1394,12 @@ body {
   margin-top: 40px;
 
   .title {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 10px;
+     text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    color: black;
+    // margin-bottom: 40px;
+    font-family: "Oswald", sans-serif;
   }
 
   .subtitle {
