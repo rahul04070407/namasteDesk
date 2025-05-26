@@ -1382,3 +1382,183 @@ body {
         }
     }
 }
+
+.pricing-plans-container {
+  position: relative;
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  margin-top: 40px;
+
+  .title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 40px;
+  }
+
+  .decor-center {
+    width: 40px;
+    margin: 0 auto 10px;
+    display: block;
+  }
+
+  .decor-container {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+
+    &.left-decor {
+      top: 20px;
+      left: 0;
+
+      .left-yellow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 90px;
+        width: auto;
+      }
+
+      .left-black {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        height: 80px;
+        width: auto;
+      }
+    }
+
+    &.right-decor {
+      top: 20px;
+      right: 0;
+
+      .right-yellow {
+        position: absolute;
+        top: 28px;
+        right: 0;
+        height: 90px;
+        width: auto;
+      }
+
+      .right-black {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        height: 80px;
+        width: auto;
+      }
+    }
+  }
+
+  .plans {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    .card {
+      background: white;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 30px 20px;
+      width: 240px;
+      min-height: 300px;
+      position: relative;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 6px #000;
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-align: left;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 2px;
+          background: #000;
+          margin-top: 6px;
+        }
+      }
+
+      .price {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 15px 0;
+        text-align: left;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          font-size: 14px;
+          text-align: left;
+        }
+      }
+    }
+
+    .pro {
+      background: linear-gradient(to bottom, #ffd700, #f7b500);
+      border: 2px solid #000;
+      box-shadow: none;
+
+      .decor-bottom {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+      }
+    }
+  }
+
+  // 👉 Responsive tweaks
+  @media (max-width: 768px) {
+    .plans {
+      gap: 20px;
+
+      .card {
+        width: 90%; // Full width cards on small tablets/mobiles
+        min-height: auto;
+        padding: 20px;
+      }
+    }
+
+    .decor-container {
+      display: none; // Hide side decorations on smaller screens
+    }
+
+    .title {
+      font-size: 26px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title {
+      font-size: 22px;
+    }
+
+    .plans .card h3 {
+      font-size: 16px;
+    }
+
+    .plans .card .price {
+      font-size: 18px;
+    }
+  }
+}
+
+
