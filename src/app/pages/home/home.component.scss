@@ -755,7 +755,7 @@ body {
 .why-namastedesk {
     margin-top: 20px;
     background-color: #FFD439;
-    padding: 80px 40px; // Added side padding
+    padding: 80px 40px;
     font-family: 'Poppins', sans-serif;
     text-align: center;
     color: #000;
@@ -766,42 +766,35 @@ body {
     }
 
     .heading {
+        font-family: "Oswald", sans-serif;
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 3rem;
         margin-bottom: 60px;
+        text-transform: uppercase;
+
     }
 
     .features {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
-
+        justify-items: center;
     }
 
     .feature-card {
         background-color: #FFD439;
         border: 2px solid white;
         color: #000;
-        width: 180px; // Smaller width on large screens
-        min-height: 180px; // Slightly shorter
+        width: 100%;
+        max-width: 320px; // widened
+        min-height: 200px; // slight increase
         border-radius: 12px;
         padding: 60px 16px 16px;
         position: relative;
-        transition: all 0.3s ease;
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         text-align: center;
         box-sizing: border-box;
-        transform: rotate(2deg); // right rotate
-
-        &:hover {
-            background-color: white;
-            color: black;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-
-            .icon-wrapper {
-                background-color: white; // Change icon background on hover
-            }
-        }
+        transform: rotate(2deg);
 
         .icon-wrapper {
             position: absolute;
@@ -833,40 +826,51 @@ body {
             }
         }
 
-    }
+        // Fixed hover styles
+        &:hover {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 
-    // Layout for desktop (first 3, then 2)
-    .features {
-
-        >.feature-card:nth-child(1),
-        >.feature-card:nth-child(2),
-        >.feature-card:nth-child(3),
-        >.feature-card:nth-child(4),
-        >.feature-card:nth-child(5) {
-            flex: 0 1 calc(33.333% - 30px);
+            .icon-wrapper {
+                background-color: #ffffff !important;
+            }
         }
     }
 
-    // Responsive
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
         .features {
-            flex-direction: column;
-            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .heading {
+            font-size: 1.5rem;
         }
 
-        .heading {
-
-            font-size: 1.2rem;
-
+        .features {
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .feature-card {
-            width: 100%;
-            max-width: 300px;
-            transform: none; // remove rotate on small screens
+            max-width: 100%;
+            transform: none;
+        }
+
+        .icon-wrapper {
+            top: -20px;
+
+            img {
+                width: 32px;
+                height: 32px;
+            }
         }
     }
 }
+
+
 
 // .who-is-it-for {
 //     background-color: white;
