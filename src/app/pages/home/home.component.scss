@@ -1260,13 +1260,38 @@ body {
                 margin-bottom: 40px;
             }
 
-            .features-column.left .feature {
-                flex-direction: row-reverse;
-                text-align: right;
-            }
+            .features-column {
+                width: 100%;
+                padding: 0 1rem;
 
-            .features-column.right .feature {
-                text-align: left;
+                &.left {
+                    margin-bottom: 40px;
+
+                    .feature {
+                        flex-direction: column !important;
+                        /* Override row-reverse */
+                        align-items: center !important;
+                        text-align: center !important;
+
+                        img {
+                            order: -1;
+                            /* Move icon above text in left column */
+                            margin-bottom: 10px;
+                            /* Space between icon and content */
+                        }
+                    }
+                }
+
+                &.right .feature {
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    text-align: center !important;
+
+                    img {
+                        margin-bottom: 10px;
+                        /* Consistent spacing for right column */
+                    }
+                }
             }
         }
     }
@@ -1287,15 +1312,46 @@ body {
             }
         }
 
-        .features-column .feature {
-            flex-direction: column !important;
-            text-align: center !important;
+        .features-column {
+            width: 100%;
 
-            img {
-                margin-top: 10px;
+            .feature {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                margin-bottom: 30px;
+
+                img {
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                    /* Space between icon and content */
+                }
+
+                strong {
+                    font-size: 0.9rem;
+                }
+
+                p {
+                    font-size: 0.75rem;
+                }
+            }
+
+            /* Re-order left column features to show icon first */
+            &.left .feature {
+                img {
+                    order: -1;
+                }
+
+                /* Icon comes first */
+                div {
+                    order: 0;
+                }
+
+                /* Content follows */
             }
         }
     }
+
 }
 
 
