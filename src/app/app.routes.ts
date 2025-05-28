@@ -8,7 +8,8 @@ import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+       redirectTo: 'home',
+    pathMatch: 'full'
   },
     {
     path: 'home',
