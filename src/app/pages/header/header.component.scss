@@ -139,11 +139,12 @@
         }
     }
 
-      @media (max-width: 1300px) {
-           .desktop-nav {
+    @media (max-width: 1300px) {
+        .desktop-nav {
             gap: 11rem;
         }
-             .logo-container {
+
+        .logo-container {
 
             .logo {
                 max-height: 130px;
@@ -153,10 +154,17 @@
         }
     }
 
+    @media (max-width: 1200px) {
+        .nav-link {
+            font-size: 14px;
+        }
+    }
+
     @media (max-width: 1040px) {
-           .desktop-nav {
+        .desktop-nav {
             gap: 4rem;
         }
+
         .logo-container {
 
             .logo {
