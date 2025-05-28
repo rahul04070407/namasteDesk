@@ -13,10 +13,12 @@ export class HeaderComponent implements AfterViewInit {
   @ViewChild('menuToggle') menuToggle!: ElementRef;
   @ViewChild('offcanvasMenu') offcanvasMenu!: ElementRef;
   @ViewChild('closeBtn') closeBtn!: ElementRef;
+
   isHomeActive = false;
   isAboutActive = false;
+  isPriceActive = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.router.events
@@ -28,8 +30,10 @@ export class HeaderComponent implements AfterViewInit {
 
         this.isHomeActive = path === 'home' && !fragment;
         this.isAboutActive = path === 'home' && fragment === 'about';
+        this.isPriceActive = path === 'home' && fragment === 'price';
       });
   }
+
   ngAfterViewInit() {
     const menuBtn = this.menuToggle.nativeElement;
     const offcanvas = this.offcanvasMenu.nativeElement;

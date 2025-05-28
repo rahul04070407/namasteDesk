@@ -11,13 +11,14 @@ import { Subscription, filter } from 'rxjs';
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('aboutSection') aboutSection!: ElementRef;
+  @ViewChild('pricingSection') pricingSection!: ElementRef;
+
   private routerSub!: Subscription;
   private observer!: IntersectionObserver;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngAfterViewInit() {
-    // Listen for router fragment changes
     this.routerSub = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -25,26 +26,36 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
           const fragment = this.route.snapshot.fragment;
           if (fragment === 'about' && this.aboutSection) {
             this.aboutSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+          } else if (fragment === 'price' && this.pricingSection) {
+            this.pricingSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
           }
         });
       });
 
-    // Observe if aboutSection leaves viewport
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting && this.route.snapshot.fragment === 'about') {
-          this.router.navigate([], {
-            relativeTo: this.route,
-            fragment: undefined,
-            replaceUrl: true
-          });
-
+        const fragment = this.route.snapshot.fragment;
+        if (!entry.isIntersecting) {
+          if (
+            (fragment === 'about' && entry.target === this.aboutSection?.nativeElement) ||
+            (fragment === 'price' && entry.target === this.pricingSection?.nativeElement)
+          ) {
+            this.router.navigate([], {
+              relativeTo: this.route,
+              fragment: undefined,
+              replaceUrl: true
+            });
+          }
         }
       });
     }, { threshold: 0.1 });
 
     if (this.aboutSection) {
       this.observer.observe(this.aboutSection.nativeElement);
+    }
+
+    if (this.pricingSection) {
+      this.observer.observe(this.pricingSection.nativeElement);
     }
   }
 
@@ -53,4 +64,3 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.observer?.disconnect();
   }
 }
-
