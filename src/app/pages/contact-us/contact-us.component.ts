@@ -20,7 +20,7 @@ export class ContactUsComponent implements OnInit {
   isSubmitting = false;
   submitSuccess = false;
   shapes: { type: string, style: any, class: string }[] = [];
-
+  mandatoryErrors: { [key: string]: boolean } = {};
   ngOnInit() {
 
     this.loadQuestions()
@@ -70,7 +70,25 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit(form: any) {
+    this.mandatoryErrors = {}; // Clear previous errors
 
+    let hasError = false;
+
+    // Check for mandatory questions
+    this.apiQuestions.forEach((q: any) => {
+      if (q.mandatory) { // spelling per your API (should be 'mandatory' ideally)
+        const answer = this.formData['q' + q.id];
+        if (!answer || (Array.isArray(answer) && answer.length === 0)) {
+          this.mandatoryErrors['q' + q.id] = true;
+          hasError = true;
+        }
+      }
+    });
+
+    if (hasError) {
+      // alert('Please fill in all mandatory fields.');
+      return;
+    }
     const submissionData = this.apiQuestions.map(question => {
       const questionKey = `q${question.id}`;
       const answer = this.formData[questionKey];

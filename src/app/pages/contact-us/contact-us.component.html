@@ -33,6 +33,9 @@
                             <span>{{ opt.name }}</span>
                         </label>
                     </div>
+                       <span class="error-message" *ngIf="mandatoryErrors['q' + q.id]">
+                        This field is mandatory.
+                    </span>
                 </div>
             </ng-container>
             <button type="submit" [disabled]="isSubmitting || demoForm.invalid">
