@@ -18,49 +18,108 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngAfterViewInit() {
-    this.routerSub = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        setTimeout(() => {
-          const fragment = this.route.snapshot.fragment;
-          if (fragment === 'about' && this.aboutSection) {
-            this.aboutSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
-          } else if (fragment === 'price' && this.pricingSection) {
-            this.pricingSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
+  // ngAfterViewInit() {
+  //   this.routerSub = this.router.events
+  //     .pipe(filter(event => event instanceof NavigationEnd))
+  //     .subscribe(() => {
+  //       setTimeout(() => {
+  //         const fragment = this.route.snapshot.fragment;
+  //         if (fragment === 'about' && this.aboutSection) {
+  //           this.aboutSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  //         } else if (fragment === 'price' && this.pricingSection) {
+  //           this.pricingSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  //         }
+  //       });
+  //     });
 
-    this.observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+  //   this.observer = new IntersectionObserver(entries => {
+  //     entries.forEach(entry => {
+  //       const fragment = this.route.snapshot.fragment;
+  //       if (!entry.isIntersecting) {
+  //         if (
+  //           (fragment === 'about' && entry.target === this.aboutSection?.nativeElement) ||
+  //           (fragment === 'price' && entry.target === this.pricingSection?.nativeElement)
+  //         ) {
+  //           this.router.navigate([], {
+  //             relativeTo: this.route,
+  //             fragment: undefined,
+  //             replaceUrl: true
+  //           });
+  //         }
+  //       }
+  //     });
+  //   }, { threshold: 0.1 });
+
+  //   if (this.aboutSection) {
+  //     this.observer.observe(this.aboutSection.nativeElement);
+  //   }
+
+  //   if (this.pricingSection) {
+  //     this.observer.observe(this.pricingSection.nativeElement);
+  //   }
+  // }
+
+  ngAfterViewInit() {
+  // 👉 Handle initial load if fragment present
+  const initialFragment = this.route.snapshot.fragment;
+  setTimeout(() => {
+    if (initialFragment === 'about' && this.aboutSection) {
+      this.aboutSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    } else if (initialFragment === 'price' && this.pricingSection) {
+      this.pricingSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  // 👉 Existing router event logic
+  this.routerSub = this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => {
+      setTimeout(() => {
         const fragment = this.route.snapshot.fragment;
-        if (!entry.isIntersecting) {
-          if (
-            (fragment === 'about' && entry.target === this.aboutSection?.nativeElement) ||
-            (fragment === 'price' && entry.target === this.pricingSection?.nativeElement)
-          ) {
-            this.router.navigate([], {
-              relativeTo: this.route,
-              fragment: undefined,
-              replaceUrl: true
-            });
-          }
+        if (fragment === 'about' && this.aboutSection) {
+          this.aboutSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+        } else if (fragment === 'price' && this.pricingSection) {
+          this.pricingSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
         }
       });
-    }, { threshold: 0.1 });
+    });
 
-    if (this.aboutSection) {
-      this.observer.observe(this.aboutSection.nativeElement);
-    }
+  // 👉 Intersection observer logic
+  this.observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const fragment = this.route.snapshot.fragment;
+      if (!entry.isIntersecting) {
+        if (
+          (fragment === 'about' && entry.target === this.aboutSection?.nativeElement) ||
+          (fragment === 'price' && entry.target === this.pricingSection?.nativeElement)
+        ) {
+          this.router.navigate([], {
+            relativeTo: this.route,
+            fragment: undefined,
+            replaceUrl: true
+          });
+        }
+      }
+    });
+  }, { threshold: 0.1 });
 
-    if (this.pricingSection) {
-      this.observer.observe(this.pricingSection.nativeElement);
-    }
+  // 👉 Start observing sections
+  if (this.aboutSection) {
+    this.observer.observe(this.aboutSection.nativeElement);
   }
+
+  if (this.pricingSection) {
+    this.observer.observe(this.pricingSection.nativeElement);
+  }
+}
+
 
   ngOnDestroy() {
     this.routerSub?.unsubscribe();
     this.observer?.disconnect();
+  }
+
+    goToContact() {
+    this.router.navigate(['/contact']);
   }
 }

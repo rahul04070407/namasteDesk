@@ -1,1 +1,47 @@
-<p>contact-us works!</p>
+<section class="contact-us">
+    <div class="background-shapes">
+        <ng-container *ngFor="let shape of shapes">
+            <div [ngClass]="shape.class" [ngStyle]="shape.style"></div>
+        </ng-container>
+    </div>
+
+    <div class="form-container">
+        <h2>Book Your Demo</h2>
+
+        <form (ngSubmit)="onSubmit(demoForm)" #demoForm="ngForm">
+            <ng-container *ngFor="let q of apiQuestions">
+                <div class="form-field" [ngClass]="{ 'full-width': isFullWidth(q) }">
+                    <label [attr.for]="'q' + q.id">{{ q.name }}</label>
+
+                    <!-- Text Input -->
+                    <input *ngIf="q.qsnType === 'T'" type="text" class="form-control" [name]="'q' + q.id"
+                        [(ngModel)]="formData['q' + q.id]" [id]="'q' + q.id" />
+
+                    <!-- Radio Buttons -->
+                    <div *ngIf="q.qsnType == 'R' && !q.multipleChoose" class="radio-group">
+                        <label *ngFor="let opt of q.optionLists" class="radio-option">
+                            <input type="radio" [name]="'q' + q.id" [value]="opt.name"
+                                [(ngModel)]="formData['q' + q.id]" />
+                            <span>{{ opt.name }}</span>
+                        </label>
+                    </div>
+
+                    <!-- Checkboxes -->
+                    <div *ngIf="q.qsnType == 'C' && q.multipleChoose" class="checkbox-group">
+                        <label *ngFor="let opt of q.optionLists" class="checkbox-option">
+                            <input type="checkbox" [value]="opt.name" (change)="onCheckboxChange($event, 'q' + q.id)" />
+                            <span>{{ opt.name }}</span>
+                        </label>
+                    </div>
+                </div>
+            </ng-container>
+            <button type="submit" [disabled]="isSubmitting || demoForm.invalid">
+                {{ isSubmitting ? 'Submitting...' : 'Submit' }}
+            </button>
+
+            <p *ngIf="submitSuccess" class="success-message">Form submitted successfully!</p>
+
+            <!-- <button type="submit">Submit</button> -->
+        </form>
+    </div>
+</section>

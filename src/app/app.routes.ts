@@ -8,10 +8,10 @@ import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 export const routes: Routes = [
   {
     path: '',
-       redirectTo: 'home',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
-    {
+  {
     path: 'home',
     component: HomeComponent,
   },
@@ -21,9 +21,9 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    component: ComingSoonComponent,
+    component: ContactUsComponent,
   },
-    {
+  {
     path: 'services',
     component: ComingSoonComponent,
   },
