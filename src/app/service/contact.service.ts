@@ -19,7 +19,7 @@ export class ContactService {
       'Content-Type': 'application/json'
     });
 
-    const params = new HttpParams().set('name', 'BIOGRENETECH');
+    const params = new HttpParams().set('name', 'ND');
     const url = `${this.baseUrl}${this.getEndpoint}`;
 
     return this.http.get<any>(url, { headers, params });
