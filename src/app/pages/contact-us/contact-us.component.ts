@@ -5,7 +5,7 @@ import { ContactService } from '../../service/contact.service';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   standalone: true,
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss'
@@ -14,31 +14,19 @@ import { ContactService } from '../../service/contact.service';
 
 export class ContactUsComponent implements OnInit {
 
-  constructor(private ContactService: ContactService) {
-
-  }
+  constructor(private ContactService: ContactService) { }
   isSubmitting = false;
   submitSuccess = false;
   shapes: { type: string, style: any, class: string }[] = [];
   mandatoryErrors: { [key: string]: boolean } = {};
-  ngOnInit() {
-
-    this.loadQuestions()
-
-    const totalShapes = window.innerWidth < 768 ? 10 : 20;
-
-    for (let i = 0; i < totalShapes; i++) {
-      const shapeType = this.getRandomShapeType();
-      this.shapes.push({
-        type: shapeType,
-        class: this.getShapeClass(shapeType),
-        style: this.getShapeStyle(shapeType),
-      });
-    }
-  }
 
   apiQuestions: any[] = [];
   formData: { [key: string]: any } = {};
+
+  ngOnInit() {
+    this.loadQuestions()
+  }
+
   private loadQuestions() {
     this.ContactService.getAllActiveQuestions().subscribe({
       next: (response) => {
@@ -163,136 +151,5 @@ export class ContactUsComponent implements OnInit {
 
   }
 
-
-  private getRandomShapeType(): string {
-    const types = [
-      'circle',
-      'semi-circle',
-      'triangle',
-      'half-triangle',
-      'curved-triangle',
-      'kite',
-      'hexagon',
-      'half-hexagon'
-    ];
-    return types[Math.floor(Math.random() * types.length)];
-  }
-
-  private getShapeClass(type: string): string {
-    switch (type) {
-      case 'circle': return 'circle';
-      case 'semi-circle': return 'circle half';
-      case 'triangle': return 'triangle';
-      case 'half-triangle': return 'triangle half';
-      case 'curved-triangle': return 'triangle curved';
-      case 'kite': return 'kite';
-      case 'hexagon': return 'hexagon';
-      case 'half-hexagon': return 'hexagon half';
-      default: return '';
-    }
-  }
-
-
-
-  private getShapeStyle(type: string): any {
-    const top = `${Math.random() * 90}%`;
-    const left = `${Math.random() * 90}%`;
-    const rotation = `rotate(${Math.random() * 360}deg)`;
-    const opacity = 0.15;
-
-    const colors = [
-      '#e53935', // cherry red
-      '#1e88e5', // blue
-      '#fb8c00', // orange
-      '#43a047', // green
-      '#8e24aa', // purple
-      '#5e35b1', // violet
-      '#d81b60', // deep pink / cherry
-      '#00acc1', // teal
-      '#fdd835', // yellow
-      '#3949ab', // indigo
-    ];
-
-
-    const background = colors[Math.floor(Math.random() * colors.length)];
-
-    if (type === 'circle' || type === 'semi-circle') {
-      const size = 70 + Math.random() * 80;
-      return {
-        top,
-        left,
-        width: `${size}px`,
-        height: `${size}px`,
-        opacity,
-        transform: rotation,
-        borderRadius: type === 'circle' ? '50%' : '0',
-        background,
-        clipPath: type === 'semi-circle' ? 'ellipse(50% 50% at 50% 100%)' : 'none'
-      };
-    }
-
-    if (type === 'triangle') {
-      const size = 80 + Math.random() * 80;
-      const half = size / 2;
-      return {
-        top,
-        left,
-        width: '0',
-        height: '0',
-        opacity,
-        transform: rotation,
-        borderLeft: `${half}px solid transparent`,
-        borderRight: `${half}px solid transparent`,
-        borderBottom: `${size}px solid ${background}`,
-      };
-    }
-
-    if (type === 'curved-triangle') {
-      const size = 60 + Math.random() * 60;
-      return {
-        top,
-        left,
-        width: `${size}px`,
-        height: `${size}px`,
-        opacity,
-        transform: rotation,
-        background,
-        clipPath: 'path("M 0 100 Q 50 0, 100 100 Z")',
-      };
-    }
-
-    if (type === 'kite') {
-      const size = 60 + Math.random() * 60;
-      return {
-        top,
-        left,
-        width: `${size}px`,
-        height: `${size}px`,
-        opacity,
-        transform: rotation,
-        background,
-        clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
-      };
-    }
-
-    if (type === 'hexagon' || type === 'half-hexagon') {
-      const width = 40 + Math.random() * 40;
-      const height = width * 0.55;
-      return {
-        top,
-        left,
-        width: `${width}px`,
-        height: `${height}px`,
-        opacity,
-        transform: rotation,
-        background,
-        clipPath: type === 'hexagon'
-          ? 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
-          : 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%)',
-      };
-    }
-
-    return {};
-  }
 
 }

@@ -299,7 +299,7 @@ body {
             max-width: 980px;
             width: 100%;
             height: auto;
-            margin: -90px auto 0px 200px;
+            margin: -90px auto 20px 200px;
             display: block;
         }
 
@@ -483,7 +483,9 @@ body {
         top: 414px !important;
     }
 
-
+    .about-section .about-image .image-circle {
+       margin: -164px auto -50px 87px !important;
+    }
 
 }
 
@@ -553,7 +555,7 @@ body {
     }
 
     .about-section .about-image .image-circle {
-        margin: -148px auto -60px 98px !important;
+        margin: -148px auto -60px -9px !important;
     }
 
 }
