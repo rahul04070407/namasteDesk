@@ -280,7 +280,7 @@ body {
 
 //     }
 
-    
+
 // }
 
 .hero-banner {
@@ -359,10 +359,12 @@ body {
                     transform: scale(1);
                     border-color: black;
                 }
+
                 50% {
                     transform: scale(1.05);
                     border-color: black;
                 }
+
                 100% {
                     transform: scale(1);
                     border-color: black;
@@ -384,6 +386,7 @@ body {
             }
 
             .banner-content {
+
                 .bell-button1,
                 .bell-button {
                     position: static;
@@ -412,7 +415,8 @@ body {
                     height: 40px;
                     font-size: 15px;
                 }
-                 .bell-button{
+
+                .bell-button {
                     margin: 1rem auto;
                     height: 40px;
                     width: 200px;
@@ -484,7 +488,7 @@ body {
     }
 
     .about-section .about-image .image-circle {
-       margin: -164px auto -50px 87px !important;
+        margin: -164px auto -50px 87px !important;
     }
 
 }
@@ -595,8 +599,8 @@ body {
                 }
 
                 .bell-button1 {
-                   right: 159px !important;
-        top: 371px !important;
+                    right: 159px !important;
+                    top: 371px !important;
                 }
             }
         }
@@ -622,14 +626,15 @@ body {
                 }
 
                 .bell-button {
-                           width: 200px;
+                    width: 200px;
                     height: 30px;
                     font-size: 12px;
                     margin-bottom: 10px;
                 }
-                  .bell-button1 {
-                           width: 200px;
-               
+
+                .bell-button1 {
+                    width: 200px;
+
                 }
             }
         }
@@ -2117,7 +2122,6 @@ body {
         font-size: 48px;
         font-weight: 700;
         color: black;
-        // margin-bottom: 40px;
         font-family: "Oswald", sans-serif;
     }
 
@@ -2186,64 +2190,121 @@ body {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 50px;
+        align-items: center;
 
         .card {
             background: white;
             border: 2px solid #000;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 30px 20px;
             width: 240px;
-            min-height: 300px;
+            min-height: 340px;
             position: relative;
             box-shadow: 0 0 0 4px #fff, 0 0 0 6px #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 15px;
+            }
 
             h3 {
                 font-size: 18px;
                 margin-bottom: 10px;
-                text-align: left;
+                text-align: center;
+                font-family: 'Oswald', sans-serif;
+                letter-spacing: 1px;
+                // &::after {
+                //     content: "";
+                //     display: block;
+                //     width: 100%;
+                //     height: 2px;
+                //     background: #000;
+                //     margin-top: 6px;
+                // }
+            }
 
-                &::after {
-                    content: "";
-                    display: block;
-                    width: 100%;
-                    height: 2px;
-                    background: #000;
-                    margin-top: 6px;
-                }
+            p {
+                font-family: 'Oswald', sans-serif;
+                letter-spacing: 2px;
             }
 
             .price {
                 font-size: 20px;
                 font-weight: bold;
                 margin: 15px 0;
-                text-align: left;
+                text-align: center;
             }
 
             ul {
                 list-style: none;
                 padding: 0;
+                margin-bottom: 20px;
 
                 li {
+                     font-family: 'Lato', sans-serif;
                     font-size: 14px;
-                    text-align: left;
+                    text-align: center;
+                }
+            }
+
+            .btn {
+                background: white;
+                border: 2px solid #000;
+                border-radius: 20px;
+                padding: 8px 20px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background 0.3s ease, color 0.3s ease;
+
+                &:hover {
+                    background: #000;
+                    color: #fff;
                 }
             }
         }
+
 
         .pro {
             background: linear-gradient(to bottom, #ffd700, #f7b500);
             border: 2px solid #000;
             box-shadow: none;
+            min-height: 400px;
 
-            .decor-bottom {
-                position: absolute;
-                bottom: -50px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 40px;
+            .btn {
+                background: #000;
+                color: #fff;
+
+                &:hover {
+                    background: #fff;
+                    color: #000;
+                }
             }
+
+
         }
+
+
+
+    }
+
+    .decor-bottom {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 98px;
+        margin-bottom: 17px;
+
     }
 
     // 👉 Responsive tweaks
@@ -2252,14 +2313,14 @@ body {
             gap: 20px;
 
             .card {
-                width: 90%; // Full width cards on small tablets/mobiles
+                width: 90%;
                 min-height: auto;
                 padding: 20px;
             }
         }
 
         .decor-container {
-            display: none; // Hide side decorations on smaller screens
+            display: none;
         }
 
         .title {

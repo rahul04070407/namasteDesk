@@ -21,9 +21,10 @@
         justify-content: center;
 
         .logo {
-            max-height: 160px;
+            max-height: 179px;
             width: auto;
             margin-left: 70px;
+            padding: 26px;
         }
 
         .logo-text {
@@ -39,7 +40,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
-        gap: 16rem;
+        gap: 7rem;
     }
 
     .nav-link {
@@ -51,6 +52,7 @@
         font-size: 19px;
         text-transform: uppercase;
         font-family: 'Oswald', sans-serif;
+        letter-spacing: 3px;
 
         &::after {
             content: "";
@@ -135,13 +137,13 @@
 
     @media (max-width: 1500px) {
         .desktop-nav {
-            gap: 12rem;
+            gap: 4rem;
         }
     }
 
     @media (max-width: 1300px) {
         .desktop-nav {
-            gap: 11rem;
+            gap: 3rem;
         }
 
         .logo-container {
@@ -162,7 +164,7 @@
 
     @media (max-width: 1040px) {
         .desktop-nav {
-            gap: 4rem;
+            gap: 2rem;
         }
 
         .logo-container {
@@ -173,6 +175,9 @@
                 margin-left: 0px;
             }
         }
+         .nav-link{
+            letter-spacing: 1px;
+         }
     }
 
     @media (max-width: 769px) {

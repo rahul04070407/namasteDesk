@@ -379,54 +379,62 @@
 
 
 
-<div class="pricing-plans-container"   #pricingSection id="price">
 
-  <!-- Left Decoration -->
-  <div class="decor-container left-decor" data-aos="fade-left">
+
+<div class="pricing-plans-container" #pricingSection id="price">
+  <!-- Decorations -->
+  <div class="decor-container left-decor"  data-aos="fade-left">
     <img src="images/Ellipse 69.png" class="left-yellow" alt="left-yellow" />
     <img src="images/Group 993.png" class="left-black" alt="left-black" />
   </div>
 
-  <!-- Right Decoration -->
-  <div class="decor-container right-decor" data-aos="fade-right">
+  <div class="decor-container right-decor"  data-aos="fade-right">
     <img src="images/Polygon 1.png" class="right-yellow" alt="right-yellow" />
     <img src="images/Group 991.png" class="right-black" alt="right-black" />
   </div>
 
-
-  <!-- Center Title -->
-  <h2 class="title" data-aos="fade-up">PRICING PLANS</h2>
+  <!-- Title -->
+  <h2 class="title"  data-aos="fade-down">PRICING PLANS</h2>
   <img src="images/wave 1.png" class="decor-center" alt="decor-center" />
-  <p class="subtitle" data-aos="fade-left">Choose Your Best Plan</p>
+  <p class="subtitle">Choose Your Best Plan</p>
 
+  <!-- Plans -->
   <div class="plans">
-    <div class="card basic" data-aos="fade-left">
+    <div class="card basic"  data-aos="fade-left">
+      <img src="images/group2.png" class="card-icon" alt="Basic Icon" />
       <h3>Basic</h3>
       <p class="price">₹1500/month</p>
       <ul>
         <li>• 300 check-ins</li>
       </ul>
+      <button class="btn"  (click)="goToContact()">Choose Plan</button>
     </div>
 
-    <div class="card pro" data-aos="fade-up">
+    <div class="card pro"  data-aos="fade-up">
+      <img src="images/group1.png" class="card-icon" alt="Pro Icon" />
       <h3>Pro</h3>
       <p class="price">₹2500/month</p>
       <ul>
         <li>• 1,000 check-ins</li>
       </ul>
-      <img src="images/Ellipse 70 (1).png" class="decor-bottom" alt="decor-bottom" />
+      <button class="btn"  (click)="goToContact()">Get Started</button>
     </div>
 
-    <div class="card enterprise" data-aos="fade-right">
+    <div class="card enterprise"  data-aos="fade-right">
+      <img src="images/building.png" class="card-icon" alt="Enterprise Icon" />
       <h3>Enterprise</h3>
       <p class="price">₹4000/month</p>
       <ul>
         <li>• 3,000 check-ins</li>
       </ul>
+      <button class="btn"  (click)="goToContact()">Choose Plan</button>
     </div>
   </div>
 
+  <img src="images/Ellipse 70 (1).png" class="decor-bottom" alt="decor-bottom" />
 </div>
+
+
 
 
 <section class="faq-section container py-5">
