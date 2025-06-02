@@ -128,7 +128,8 @@ box-shadow: 0 8px 20px rgb(0 0 0 / 27%);
         transition: background 0.3s;
 
         &:hover {
-          background-color: #5d2121;
+          background-color: #ffda2a;
+          color: black;
         }
 
         &:disabled {
