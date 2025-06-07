@@ -579,15 +579,15 @@ body {
 
     @media (max-width: 480px) {
         .banner-image-container .banner-overlay-text {
-            font-size: 15px;
-            max-width: 259px;
+                font-size: 12px;
+        max-width: 219px;
 
         }
 
         .cta-button {
             min-width: 120px;
             padding: 8px 16px;
-            font-size: 14px;
+            font-size: 10px;
         }
     }
 }
@@ -732,6 +732,16 @@ body {
 }
 
 @media (max-width: 767px) {
+
+    .faq-section {
+
+
+        h2 {
+            font-size: 24px !important;
+
+        }
+    }
+
     .hero-banner {
         .banner-wrapper {
             .banner-mockup {
@@ -2053,7 +2063,8 @@ body {
             padding: 2rem 1rem;
 
             h2 {
-                font-size: 1.2rem;
+                font-size: 24px !important;
+
             }
 
             .accordion-button {
