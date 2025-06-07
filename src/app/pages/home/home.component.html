@@ -1,4 +1,4 @@
-<section class="hero-banner">
+<!-- <section class="hero-banner">
   <div class="banner-wrapper">
     <img src="images/banner.jpg" alt="Banner Mockup" class="banner-mockup" data-aos="fade-right" />
 
@@ -10,13 +10,21 @@
       <button class="bell-button" aria-label="Notifications" (click)="goToContact()">
         BOOK YOUR FREE DEMO
       </button>
-      <!-- <h1 class="heading" data-aos="fade-left">Revolutionize The Way You Welcome Visitors</h1>
-      <p class="subheading" data-aos="fade-right">No More Registers | No More Chaos | Just Pure Convenience</p> -->
     </div>
 
 
   </div>
-</section>
+</section> -->
+<div class="visitor-banner">
+  <div class="banner-image-container">
+    <img data-aos="fade-right" src="images/banner1.jpg" alt="Visitor Desk Banner" class="banner-image" />
+    <p class="banner-overlay-text">Visitor Management System</p>
+  </div>
+  <button class="cta-button" (click)="goToContact()">BOOK YOUR FREE DEMO</button>
+</div>
+
+
+
 
 
 <!-- <a href="#" class="side-demo-button">BOOK YOUR FREE DEMO</a> -->
@@ -55,7 +63,7 @@
         With features like real-time data synchronization, access control, and detailed analytics, Namaste Desk empowers
         organizations to handle visitor traffic with ease, professionalism, and efficiency.
       </p>
-      <a  class="about-button" data-aos="fade-left"  (click)="goToContact()">Contact Us</a>
+      <a class="about-button" data-aos="fade-left" (click)="goToContact()">Contact Us</a>
     </div>
     <div class="about-image">
       <div class="image-circle">
@@ -383,51 +391,51 @@
 
 <div class="pricing-plans-container" #pricingSection id="price">
   <!-- Decorations -->
-  <div class="decor-container left-decor"  data-aos="fade-left">
+  <div class="decor-container left-decor" data-aos="fade-left">
     <img src="images/Ellipse 69.png" class="left-yellow" alt="left-yellow" />
     <img src="images/Group 993.png" class="left-black" alt="left-black" />
   </div>
 
-  <div class="decor-container right-decor"  data-aos="fade-right">
+  <div class="decor-container right-decor" data-aos="fade-right">
     <img src="images/Polygon 1.png" class="right-yellow" alt="right-yellow" />
     <img src="images/Group 991.png" class="right-black" alt="right-black" />
   </div>
 
   <!-- Title -->
-  <h2 class="title"  data-aos="fade-down">PRICING PLANS</h2>
+  <h2 class="title" data-aos="fade-down">PRICING PLANS</h2>
   <img src="images/wave 1.png" class="decor-center" alt="decor-center" />
   <p class="subtitle">Choose Your Best Plan</p>
 
   <!-- Plans -->
   <div class="plans">
-    <div class="card basic"  data-aos="fade-left">
+    <div class="card basic" data-aos="fade-left">
       <img src="images/group2.png" class="card-icon" alt="Basic Icon" />
       <h3>Basic</h3>
       <p class="price">₹1500/month</p>
       <ul>
         <li>• 300 check-ins</li>
       </ul>
-      <button class="btn"  (click)="goToContact()">Choose Plan</button>
+      <button class="btn" (click)="goToContact()">Choose Plan</button>
     </div>
 
-    <div class="card pro"  data-aos="fade-up">
+    <div class="card pro" data-aos="fade-up">
       <img src="images/group1.png" class="card-icon" alt="Pro Icon" />
       <h3>Pro</h3>
       <p class="price">₹2500/month</p>
       <ul>
         <li>• 1,000 check-ins</li>
       </ul>
-      <button class="btn"  (click)="goToContact()">Get Started</button>
+      <button class="btn" (click)="goToContact()">Get Started</button>
     </div>
 
-    <div class="card enterprise"  data-aos="fade-right">
+    <div class="card enterprise" data-aos="fade-right">
       <img src="images/building.png" class="card-icon" alt="Enterprise Icon" />
       <h3>Enterprise</h3>
       <p class="price">₹4000/month</p>
       <ul>
         <li>• 3,000 check-ins</li>
       </ul>
-      <button class="btn"  (click)="goToContact()">Choose Plan</button>
+      <button class="btn" (click)="goToContact()">Choose Plan</button>
     </div>
   </div>
 

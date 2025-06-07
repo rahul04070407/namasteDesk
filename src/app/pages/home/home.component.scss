@@ -475,6 +475,129 @@ body {
     }
 }
 
+.visitor-banner {
+    background-color: #ffda2a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px 50px;
+
+    .banner-image-container {
+        position: relative;
+        width: 100%;
+        max-width: 1300px;
+        margin-bottom: 10px;
+
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .banner-overlay-text {
+            /* Default: overlay on large screens */
+            position: absolute;
+            bottom: 20px;
+            left: 65%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            background: #000;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-align: center;
+            max-width: 90%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .cta-button {
+        background-color: #000;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+        width: fit-content;
+        min-width: 200px;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+
+    /* MEDIA QUERIES */
+    @media (min-width: 1024px) and (max-width: 1124px) {
+        .banner-image-container .banner-overlay-text {
+            bottom: 5px !important;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .banner-image-container .banner-overlay-text {
+            position: static;
+            transform: none;
+            bottom: auto;
+            left: auto;
+            font-size: 17px;
+            white-space: normal;
+            /* allow wrapping */
+            margin: 10px auto 0;
+            /* vertical top margin + center horizontally */
+            background: black;
+            color: white;
+            padding: 8px 16px;
+            /* horizontal padding to give breathing room */
+            max-width: 300px;
+            /* or adjust to what fits best */
+            text-align: center;
+            border-radius: 0;
+            overflow: visible;
+            width: auto;
+        }
+
+        .cta-button {
+            min-width: 180px;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .cta-button {
+            min-width: 150px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .banner-image-container .banner-overlay-text {
+            font-size: 15px;
+            max-width: 259px;
+
+        }
+
+        .cta-button {
+            min-width: 120px;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+    }
+}
+
+
+
+
+
+
+
 
 @media (max-width: 1200px) {
     .hero-banner .banner-wrapper .banner-content .bell-button {
@@ -957,7 +1080,7 @@ body {
         .image-circle {
             width: 100%;
             max-width: 500px;
-            margin: -148px auto -60px 179px;
+            margin: -200px auto -60px 179px;
             background: transparent;
             border: none;
 
@@ -2251,7 +2374,7 @@ body {
                 margin-bottom: 20px;
 
                 li {
-                     font-family: 'Lato', sans-serif;
+                    font-family: 'Lato', sans-serif;
                     font-size: 14px;
                     text-align: center;
                 }
