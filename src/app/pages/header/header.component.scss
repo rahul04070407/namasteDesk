@@ -1,229 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
-
 .custom-header {
-    background-color: #ffda2a;
-    z-index: 10;
+  background-color: #ffda2a;
+  position: relative;
+  z-index: 10;
+  padding: 0 60px;
+  font-family: 'Oswald', sans-serif;
+
+  .header-row {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 140px;
     position: relative;
+  }
 
-    .header-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 40px;
-        height: 120px;
-        position: relative;
+  .logo-container {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    .logo {
+      max-height: 140px;
+      width: auto;
     }
+  }
 
-    .logo-container {
-        display: flex;
-        align-items: center;
-        max-width: 550px;
-        justify-content: center;
-
-        .logo {
-            //         max-height: 179px;
-            //         width: auto;
-            //       margin-left: 90px;
-            // padding: 34px 0;
-
-            max-height: 151px;
-            width: auto;
-            margin-left: 100px;
-             padding: 15px 0; 
-            // margin-top: 40px;
-
-
-        }
-
-        .logo-text {
-            margin-left: 12px;
-            font-size: 14px;
-            color: black;
-        }
-    }
-
-    .desktop-nav {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        gap: 7rem;
-    }
+  .desktop-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
 
     .nav-link {
-        position: relative;
-        padding-bottom: 6px;
-        color: black;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 19px;
-        text-transform: uppercase;
-        font-family: 'Oswald', sans-serif;
-        letter-spacing: 2px;
+      color: black;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 21px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 6px;
 
-        &::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background-color: black;
-            bottom: -6px;
-            left: 0;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-            border-radius: 2px;
-        }
-
-        &:hover::after,
-        &.active::after {
-            transform: scaleX(1);
-        }
-
-        &:hover,
-        &.active {
-            color: black;
-        }
-    }
-
-    .menu-toggle {
-        display: none;
-        font-size: 28px;
-        cursor: pointer;
+      &::after {
+        content: "";
         position: absolute;
-        right: 24px;
-        top: 50%;
-        transform: translateY(-50%);
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        bottom: -6px;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+        border-radius: 2px;
+      }
+
+      &:hover::after,
+      &.active::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 8px 12px;
+    user-select: none;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #444;
+    }
+  }
+
+  .offcanvas-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: #ffda2a;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.15);
+    color: black;
+    transition: left 0.3s ease-in-out;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    &.open {
+      left: 0;
     }
 
-    .offcanvas-menu {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 250px;
-        height: 100%;
-        background-color: #ffda2a;
-        color: #000;
-        transition: left 0.3s ease-in-out;
-        z-index: 1000;
-        display: flex;
-        flex-direction: column;
+    .offcanvas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-        &.open {
-            left: 0;
+      h5 {
+        font-weight: 700;
+        font-size: 1.8rem;
+        margin: 0;
+        color: black;
+      }
+
+      .close-btn {
+        font-size: 2.4rem;
+        font-weight: 700;
+        cursor: pointer;
+        user-select: none;
+        color: black;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #333;
         }
-
-        .offcanvas-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #fadb3e;
-            color: rgb(0, 0, 0);
-            padding: 16px;
-
-            .close-btn {
-                font-size: 24px;
-                cursor: pointer;
-            }
-        }
-
-        .offcanvas-body {
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-
-            .nav-link {
-                padding: 12px 16px;
-
-                &:hover {
-                    color: black;
-                }
-            }
-        }
+      }
     }
 
-    @media (max-width: 1500px) {
-        .desktop-nav {
-            gap: 4rem;
+    .offcanvas-body {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+
+      .nav-link {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: black;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border-left: 4px solid transparent;
+        transition: background-color 0.2s ease, border-color 0.3s ease;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.07);
+          border-left-color: black;
+          color: black;
         }
+
+        &.active {
+          border-left-color: black;
+          background-color: rgba(0, 0, 0, 0.12);
+        }
+      }
+    }
+  }
+
+  // Body scroll lock when offcanvas open
+  .no-scroll & {
+    overflow: hidden;
+  }
+
+  // Responsive tweaks
+  @media (max-width: 1400px) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: 1200px) {
+    .desktop-nav {
+      gap: 4rem;
     }
 
-    @media (max-width: 1300px) {
-        .desktop-nav {
-            gap: 3rem;
-        }
-
-        .logo-container {
-
-            .logo {
-                max-height: 130px;
-                width: auto;
-                margin-left: 0px;
-            }
-        }
+    .logo-container .logo {
+              max-height: 125px;
     }
+  }
 
-    @media (max-width: 1200px) {
-        .nav-link {
-            font-size: 13px;
-        }
+  @media (max-width: 991px) {
+    .desktop-nav {
+      display: none;
     }
-
-    @media (max-width: 1040px) {
-        .desktop-nav {
-            gap: 2rem;
-        }
-
-        .logo-container {
-
-            .logo {
-                max-height: 110px;
-                width: auto;
-                margin-left: 0px;
-            }
-        }
-
-        .nav-link {
-            letter-spacing: 1px;
-        }
+    .menu-toggle {
+      display: block;
     }
+  }
 
-    @media (max-width: 769px) {
-        .logo-container {
+  @media (max-width: 768px) {
+    padding: 0 20px;
 
-            .logo {
-                max-height: 100px;
-                width: auto;
-                margin-left: 0px;
-                // padding: 15px 0;
-
-
-
-                margin-top: 0px;
-
-
-            }
-        }
-
-        .header-row {
-            justify-content: space-between;
-        }
-
-        .desktop-nav {
-            display: none;
-        }
-
-        .menu-toggle {
-            display: block;
-        }
+    .logo-container .logo {
+   max-height: 120px;
     }
+  }
 }
 
-.nav-link.active {
-    color: black !important;
-
-    &::after {
-        transform: scaleX(1) !important;
-    }
+/* Optional body lock style */
+.no-scroll {
+  overflow: hidden;
 }
