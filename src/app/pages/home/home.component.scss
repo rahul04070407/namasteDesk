@@ -588,7 +588,8 @@ body {
         }
 
         .banner-image-container .banner-image {
-                   margin-left: 60px;
+                    max-width: 100%;
+                    margin-left: 0px;
         }
     }
 
@@ -597,9 +598,9 @@ body {
             font-size: 12px;
             max-width: 219px;
 
-                .banner-image-container .banner-image {
-            margin-left: 48px !important;
-        }
+        //         .banner-image-container .banner-image {
+        //     margin-left: 48px !important;
+        // }
         }
 
         .cta-button {
